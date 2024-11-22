@@ -28,7 +28,7 @@ with st.form("my_form"):
    if submitted:
       x_train = np.array([[Age,Sex,NCC,Eosinophil,TBAb,ADA,Chloride,Protein,CEA,CA199,CK19,SCC]])
       explainer = shap.TreeExplainer(
-      loaded_model,
+      model,
       data=x_train,
       feature_perturbation="interventional",
       model_output="probability",
