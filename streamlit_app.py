@@ -29,7 +29,7 @@ with st.form("my_form"):
       x_train = np.array([[Age,Sex,NCC,Eosinophil,TBAb,ADA,Chloride,Protein,CEA,CA199,CK19,SCC]])
       explainer = shap.TreeExplainer(model)
       shap_values = explainer.shap_values(x_train)
-      shap.force_plot(explainer.expected_value, shap_values[0,:], x_train.iloc[0,:], matplotlib=True, show=False)
+      shap.force_plot(explainer.expected_value, shap_values[0,:], x_train[0,:], matplotlib=True, show=False)
       # plt.xticks(fontproperties='Times New Roman', size=15)
       # plt.yticks(fontproperties='Times New Roman', size=20)
       plt.tight_layout()
