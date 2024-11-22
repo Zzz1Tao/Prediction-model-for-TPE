@@ -36,7 +36,7 @@ with st.form("my_form"):
       shap_values = explainer.shap_values(x_train) 
       temp = np.round(x_train, 2)
       shap.force_plot(explainer.expected_value, shap_values,temp,
-         features=x_train, matplotlib=True, show=False)
+         features, matplotlib=True, show=False)
       # plt.xticks(fontproperties='Times New Roman', size=15)
       # plt.yticks(fontproperties='Times New Roman', size=20)
       plt.tight_layout()
