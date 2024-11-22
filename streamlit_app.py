@@ -26,16 +26,21 @@ with st.form("my_form"):
 
    submitted = st.form_submit_button("Predict")
    if submitted:
-      x_test = np.array([[Age,Sex,NCC,Eosinophil,TBAb,ADA,Chloride,Protein,CEA,CA199,CK19,SCC]])
-      explainer = shap.TreeExplainer(model)
-      shap_values = explainer.shap_values(x_test) 
-      temp = np.round(x_test, 2)
-      shap.force_plot(explainer.expected_value[1], shap_values[1],temp,
+      x_train = np.array([[Age,Sex,NCC,Eosinophil,TBAb,ADA,Chloride,Protein,CEA,CA199,CK19,SCC]])
+      explainer = shap.TreeExplainer(
+      loaded_model,
+      data=X_train,
+      feature_perturbation="interventional",
+      model_output="probability",
+      )
+      shap_values = explainer.shap_values(x_train) 
+      temp = np.round(x_train, 2)
+      shap.force_plot(explainer.expected_value, shap_values,temp,
          feature_names = ['Age','Sex','NCC','Eosinophil','TB Ab','ADA','Chloride','Protein','CEA','CA199','CK19','SCC'], matplotlib=True, show=False)
       plt.xticks(fontproperties='Times New Roman', size=15)
       plt.yticks(fontproperties='Times New Roman', size=20)
       plt.tight_layout()
       plt.savefig("TPE force plot.png",dpi=600)
       pred = model.predict_proba(x_test)
-      st.markdown("#### _Based on feature values, predicted possibility of TPE is {}%_".format(round(pred[0][1], 4)*100))
+      # st.markdown("#### _Based on feature values, predicted possibility of TPE is {}%_".format(round(pred[0][1], 4)*100))
       st.image('TPE force plot.png')
