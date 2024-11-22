@@ -42,5 +42,5 @@ with st.form("my_form"):
       plt.tight_layout()
       plt.savefig("TPE force plot.png",dpi=600)
       pred = model.predict_proba(x_train)
-      # st.markdown("#### _Based on feature values, predicted possibility of TPE is {}%_".format(round(pred[0][1], 4)*100))
+      st.markdown("#### _Based on feature values, predicted possibility of TPE is {}%_".format(round(pred[0][1], 4)*100))
       st.image('TPE force plot.png')
