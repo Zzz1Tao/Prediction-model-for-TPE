@@ -34,9 +34,9 @@ with st.form("my_form"):
       model_output="probability",
       )
       shap_values = explainer.shap_values(x_train)
-      shap.force_plot(explainer.expected_value, shap_values[0,:], features=x_train[0, :], matplotlib=True, show=False)
-      plt.xticks(fontproperties='Times New Roman', size=15)
-      plt.yticks(fontproperties='Times New Roman', size=20)
+      shap.force_plot(explainer.expected_value, shap_values[x_train], features=x_train[x_train :], matplotlib=True, show=False)
+      # plt.xticks(fontproperties='Times New Roman', size=15)
+      # plt.yticks(fontproperties='Times New Roman', size=20)
       plt.tight_layout()
       plt.savefig("TPE force plot.png",dpi=600)
       pred = model.predict_proba(x_train)
