@@ -38,6 +38,7 @@ with st.form("my_form"):
     shap_values, 
     temp,
     feature_names = ['Age','Sex','NCC','Eosinophil','TBAb','ADA','Chloride','Protein','CEA','CA199','CK19','SCC'],matplotlib=True,show=False)
+    plt.rcParams['font.size'] = 14 
     plt.xticks(size=15)
     plt.yticks(size=20)
     plt.tight_layout()
