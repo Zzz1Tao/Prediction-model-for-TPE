@@ -7,23 +7,23 @@ import matplotlib.pyplot as plt
 
 warnings.filterwarnings('ignore')
 
-
 model = joblib.load("CatBoost.pkl")
 
 with st.form("my_form"):
-   Age = st.number_input('Age')
-   Sex = st.number_input('Sex')
-   NCC = st.number_input('NCC')
-   Eosinophil = st.number_input('Eosinophil')
-   TBAb = st.number_input('TB Ab')
-   ADA = st.number_input('ADA')
-   Chloride = st.number_input('Chloride')
-   Protein = st.number_input('Protein')
-   CEA = st.number_input('CEA')
-   CA199 = st.number_input('CA199')
-   SCC = st.number_input('SCC')
-   CK19 = st.number_input('CK19')
-
+   Age = st.number_input('Age(year)', step=1)
+   sex_option = st.selectbox('Sex', ['Male', 'Female'])
+   Sex = 1 if sex_option == 'Male' else 2
+   NCC = st.number_input('Nucleated Cell Count (cells/µL)')
+   Eosinophil = st.number_input('Eosinophil(%)')
+   TBAb = st.number_input('TB Ab(Negative:0,Weak Positive:1,Positive:2)')
+   ADA = st.number_input('ADA(U/L)')
+   Chloride = st.number_input('Chloride(mmol/L)')
+   Protein = st.number_input('Protein(mg/dL)')
+   CEA = st.number_input('CEA(ug/L)')
+   CA199 = st.number_input('CA199(U/mL)')
+   SCC = st.number_input('SCC(ng/mL)')
+   CK19 = st.number_input('CK19(ng/mL)')
+   
    submitted = st.form_submit_button("Predict")
    if submitted:
     x_train = np.array([[Age,Sex,NCC,Eosinophil,TBAb,ADA,Chloride,Protein,CEA,CA199,CK19,SCC]])
