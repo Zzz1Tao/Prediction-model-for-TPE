@@ -13,9 +13,10 @@ with st.form("my_form"):
    Age = st.number_input('Age(year)', step=1)
    sex_option = st.selectbox('Sex', ['Male', 'Female'])
    Sex = 1 if sex_option == 'Male' else 2
-   NCC = st.number_input('Nucleated Cell Count (cells/µL)')
+   NCC = st.number_input('Nucleated Cell Count (cells/µL)', step=1)
    Eosinophil = st.number_input('Eosinophil(%)')
-   TBAb = st.number_input('TB Ab(Negative:0,Weak Positive:1,Positive:2)')
+   TBAb_option = st.selectbox('TB Ab', ['Negative', 'Weak Positive','Positive'])
+   TBAb = 0 if TBAb_option == 'Negative' else (1 if TBAb_option == 'Weak Positive' else 2)
    ADA = st.number_input('ADA(U/L)')
    Chloride = st.number_input('Chloride(mmol/L)')
    Protein = st.number_input('Protein(mg/dL)')
