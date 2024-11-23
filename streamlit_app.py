@@ -35,7 +35,11 @@ with st.form("my_form"):
       )
       temp = np.round(x_train, 2)
       shap_values = explainer.shap_values(x_train)
-      shap.force_plot(explainer.expected_value, shap_values, feature_names = ['Age','Sex','NCC','Eosinophil','TBAb','ADA','Chloride','Protein','CEA','CA199','CK19','SCC'],matplotlib=True, show=True)
+      shap.force_plot(
+      base_value=explainer.expected_value, 
+      shap_values=shap_value, 
+      feature_names = ['Age','Sex','NCC','Eosinophil','TBAb','ADA','Chloride','Protein','CEA','CA199','CK19','SCC']
+      )
       plt.xticks(size=15)
       plt.yticks(size=20)
       plt.tight_layout()
