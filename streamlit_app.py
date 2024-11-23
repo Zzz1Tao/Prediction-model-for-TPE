@@ -34,7 +34,7 @@ with st.form("my_form"):
       model_output="probability",
       )
       shap_values = explainer.shap_values(x_train)
-      shap.force_plot(explainer.expected_value, shap_values[x_train], features=x_train[x_train :], matplotlib=True, show=False)
+      shap.force_plot(explainer.expected_value, shap_values[x_train], feature_names = ['Age','Sex','NCC','Eosinophil','TBAb','ADA','Chloride','Protein','CEA','CA199','CK19','SCC'],matplotlib=True, show=False)
       # plt.xticks(fontproperties='Times New Roman', size=15)
       # plt.yticks(fontproperties='Times New Roman', size=20)
       plt.tight_layout()
