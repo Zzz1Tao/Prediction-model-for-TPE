@@ -14,7 +14,7 @@ with st.form("my_form"):
    sex_option = st.selectbox('Sex', ['Male', 'Female'])
    Sex = 1 if sex_option == 'Male' else 2
    NCC = st.number_input('Nucleated Cell Count (cells/µL)', step=1)
-   Eosinophil = st.number_input('Eosinophil(%)')
+   Eosinophil = st.number_input('Eosinophil(%)', step=1)
    TBAb_option = st.selectbox('TB Ab', ['Negative', 'Weak Positive','Positive'])
    TBAb = 0 if TBAb_option == 'Negative' else (1 if TBAb_option == 'Weak Positive' else 2)
    ADA = st.number_input('ADA(U/L)')
