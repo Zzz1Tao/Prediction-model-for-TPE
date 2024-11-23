@@ -29,9 +29,9 @@ with st.form("my_form"):
       x_train = np.array([[Age,Sex,NCC,Eosinophil,TBAb,ADA,Chloride,Protein,CEA,CA199,CK19,SCC]])
       explainer = shap.TreeExplainer(
       model,
-      data=x_train
+      data=X_train,
       feature_perturbation="interventional",
-      model_output="probability"
+      model_output="probability",
       )
       temp = np.round(x_train, 2)
       shap_values = explainer.shap_values(x_train)
