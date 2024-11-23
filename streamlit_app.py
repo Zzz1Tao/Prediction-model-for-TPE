@@ -39,8 +39,8 @@ with st.form("my_form"):
     temp,
     feature_names = ['Age','Sex','NCC','Eosinophil','TBAb','ADA','Chloride','Protein','CEA','CA199','CK19','SCC'],matplotlib=True,show=False)
     plt.xticks(size=15)
-    plt.yticks(size=2)
-    plt.tight_layout()
+    plt.yticks(size=20)
+    # plt.tight_layout()
     plt.savefig("TPE force plot.png",dpi=600)
     pred = model.predict_proba(x_train)
     st.markdown("#### _Based on feature values, predicted possibility of TPE is {}%_".format(round(pred[0][1], 4)*100))
