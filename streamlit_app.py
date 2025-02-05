@@ -21,9 +21,9 @@ with st.form("my_form"):
    Chloride = st.number_input('Chloride(mmol/L)')
    Protein = st.number_input('Protein(mg/dL)')
    CEA = st.number_input('CEA(ug/L)')
-   CA199 = st.number_input('CA199(U/mL)')
+   CA199 = st.number_input('CA19-9(U/mL)')
    SCC = st.number_input('SCC(ng/mL)')
-   CK19 = st.number_input('CK19(ng/mL)')
+   CK19 = st.number_input('CYFRA21-1(ng/mL)')
    
    submitted = st.form_submit_button("Predict")
    if submitted:
